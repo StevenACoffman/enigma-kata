@@ -17,7 +17,6 @@ Given an enigma
 When an operator encrypts "B"
 Then the result is "J"
 
-@todo
 Scenario: A User encrypts letter "C"
 Given an enigma
 When an operator encrypts "C"

@@ -19,6 +19,10 @@ def step_impl(context):
     if not hasattr(context, 'enigma'):
         context.enigma = Enigma()
 
+@given(u'an enigma that uses the reflector, and left and center rotors')
+def step_impl(context):
+    if not hasattr(context, 'enigma'):
+        context.enigma = Enigma()
 
 @given(u'a reflector "{reflector}"')
 def step_impl(context, reflector):
@@ -26,13 +30,18 @@ def step_impl(context, reflector):
         context.enigma = Enigma()
     context.enigma.reflector = reflector
 
-
 @given(u'a reflector "{reflector}";')
 def step_impl(context, reflector):
     if not hasattr(context, 'enigma'):
         context.enigma = Enigma()
     context.enigma.reflector = reflector
 
+@given(u'center rotor "{centerRotor}";')
+def step_impl(context, centerRotor):
+    print('*****************centerRotor:'+centerRotor)
+    if not hasattr(context, 'enigma'):
+        context.enigma = Enigma()
+    context.enigma.centerRotor = centerRotor
 
 @given(u'leftmost rotor "{leftRotor}";')
 def step_impl(context, leftRotor):

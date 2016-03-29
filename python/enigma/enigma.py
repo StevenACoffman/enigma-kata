@@ -1,12 +1,23 @@
 class Enigma(object):
     alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    #default value
-    reflector = alphabet
-    #default value
+    # default value
+    reflector = 'EJMZALYXVBWFCRQUONTSPIKHGD'
+    # default value
     leftRotor = alphabet
-
+    # default value
+    centerRotor = alphabet
 
     def encrypt(self, message):
-        encrypted_message = message.translate(str.maketrans(self.alphabet, self.leftRotor))
+        encrypted_message = message
+
+        encrypted_message = encrypted_message.translate(str.maketrans(self.alphabet, self.centerRotor))
+        # print('center rotor:' + encrypted_message)
+        encrypted_message = encrypted_message.translate(str.maketrans(self.alphabet, self.leftRotor))
+        # print('leftRotor:' + encrypted_message)
         encrypted_message = encrypted_message.translate(str.maketrans(self.alphabet, self.reflector))
-        return encrypted_message.translate(str.maketrans(self.leftRotor, self.alphabet))
+        # print('reflector:' + encrypted_message)
+        encrypted_message = encrypted_message.translate(str.maketrans(self.leftRotor, self.alphabet))
+        # print('leftRotorBackwards:' + encrypted_message)
+        encrypted_message = encrypted_message.translate(str.maketrans(self.centerRotor, self.alphabet))
+        # print('centerRotorBackwards:' + encrypted_message)
+        return encrypted_message
