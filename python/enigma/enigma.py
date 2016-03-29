@@ -1,11 +1,12 @@
 class Enigma(object):
     alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-
-    def __init__(self, reflector='EJMZALYXVBWFCRQUONTSPIKHGD'):
-        super().__init__()
-        self.reflector = reflector
+    #default value
+    reflector = alphabet
+    #default value
+    leftRotor = alphabet
 
 
     def encrypt(self, message):
-
-        return message.translate(str.maketrans(self.alphabet, self.reflector))
+        encrypted_message = message.translate(str.maketrans(self.alphabet, self.leftRotor))
+        encrypted_message = encrypted_message.translate(str.maketrans(self.alphabet, self.reflector))
+        return encrypted_message.translate(str.maketrans(self.leftRotor, self.alphabet))

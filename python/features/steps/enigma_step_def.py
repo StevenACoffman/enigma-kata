@@ -9,6 +9,38 @@ def step_impl(context):
     context.enigma = Enigma()
 
 
+@given(u'an enigma that uses the reflector')
+def step_impl(context):
+    if not hasattr(context, 'enigma'):
+        context.enigma = Enigma()
+
+@given(u'an enigma that uses the reflector and leftmost rotor')
+def step_impl(context):
+    if not hasattr(context, 'enigma'):
+        context.enigma = Enigma()
+
+
+@given(u'a reflector "{reflector}"')
+def step_impl(context, reflector):
+    if not hasattr(context, 'enigma'):
+        context.enigma = Enigma()
+    context.enigma.reflector = reflector
+
+
+@given(u'a reflector "{reflector}";')
+def step_impl(context, reflector):
+    if not hasattr(context, 'enigma'):
+        context.enigma = Enigma()
+    context.enigma.reflector = reflector
+
+
+@given(u'leftmost rotor "{leftRotor}";')
+def step_impl(context, leftRotor):
+    if not hasattr(context, 'enigma'):
+        context.enigma = Enigma()
+    context.enigma.leftRotor = leftRotor
+
+
 # Apparently behave can't recognize "" as text of zero length
 @when('an operator encrypts ""')
 def step_impl(context):
@@ -28,19 +60,3 @@ def step_impl(context, text):
 @then('the result is "{text}"')
 def step_impl(context, text):
     eq_(text, context.result)
-
-
-@given(u'a reflector "{reflector}"')
-def step_impl(context, reflector):
-    context.enigma = Enigma(reflector)
-
-
-@given(u'a reflector "{reflector}";')
-def step_impl(context, reflector):
-    context.enigma = Enigma(reflector)
-
-
-@given(u'an enigma that uses the reflector')
-def step_impl(context):
-    pass
-
