@@ -1,6 +1,8 @@
+cd python
+mkvirtualenv
 # Install behave
 
-`pip install behave`
+`pip install -r requirements.txt`
 
 # Run BDD Tests
 
