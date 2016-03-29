@@ -8,7 +8,6 @@ from enigma import Enigma
 def step_impl(context):
     context.enigma = Enigma()
 
-
 @given(u'an enigma that uses the reflector')
 def step_impl(context):
     if not hasattr(context, 'enigma'):
@@ -20,6 +19,11 @@ def step_impl(context):
         context.enigma = Enigma()
 
 @given(u'an enigma that uses the reflector, and left and center rotors')
+def step_impl(context):
+    if not hasattr(context, 'enigma'):
+        context.enigma = Enigma()
+
+@given(u'an enigma that uses the reflector and all rotors')
 def step_impl(context):
     if not hasattr(context, 'enigma'):
         context.enigma = Enigma()
@@ -49,6 +53,11 @@ def step_impl(context, leftRotor):
         context.enigma = Enigma()
     context.enigma.leftRotor = leftRotor
 
+@given(u'right rotor "{rightRotor}";')
+def step_impl(context, rightRotor):
+    if not hasattr(context, 'enigma'):
+        context.enigma = Enigma()
+    context.enigma.rightRotor = rightRotor
 
 # Apparently behave can't recognize "" as text of zero length
 @when('an operator encrypts ""')

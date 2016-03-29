@@ -1,6 +1,5 @@
 Feature: Enigma with a reflector and two static rotors AND ONE MOVING ROTOR should act as a simple cypher
 
-@todo
 Scenario: User encrypts no message
 Given a reflector "YRUHQSLDPXNGOKMIEBFZCWVJAT";
 And leftmost rotor "ACDBEFGHIJKLMNOPQRSTUVWXYZ";
@@ -10,7 +9,6 @@ And an enigma that uses the reflector and all rotors
 When an operator encrypts ""
 Then the result is ""
 
-@todo
 Scenario: User encrypts message "E"
 Given a reflector "YRUHQSLDPXNGOKMIEBFZCWVJAT";
 And leftmost rotor "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -20,7 +18,6 @@ And an enigma that uses the reflector and all rotors
 When an operator encrypts "E"
 Then the result is "Q"
 
-@todo
 Scenario: User encrypts message "D"
 Given a reflector "YRUHQSLDPXNGOKMIEBFZCWVJAT";
 And leftmost rotor "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
