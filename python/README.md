@@ -1,5 +1,5 @@
 cd python
-mkvirtualenv
+mkvirtualenv enigma
 # Install behave
 
 `pip install -r requirements.txt`

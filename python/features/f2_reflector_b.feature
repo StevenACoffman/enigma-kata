@@ -1,6 +1,5 @@
 Feature: Enigma with a Reflector UKW-B should act as a simple cypher
 
-@todo
 Scenario: User encrypts no message
 Given a reflector "YRUHQSLDPXNGOKMIEBFZCWVJAT"
 And an enigma that uses the reflector

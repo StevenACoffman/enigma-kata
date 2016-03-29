@@ -28,3 +28,12 @@ def step_impl(context, text):
 @then('the result is "{text}"')
 def step_impl(context, text):
     eq_(text, context.result)
+
+@given(u'a reflector "YRUHQSLDPXNGOKMIEBFZCWVJAT"')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Given a reflector "YRUHQSLDPXNGOKMIEBFZCWVJAT"')
+
+@given(u'an enigma that uses the reflector')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Given an enigma that uses the reflector')
+
