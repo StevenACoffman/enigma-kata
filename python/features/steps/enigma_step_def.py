@@ -3,30 +3,34 @@ from nose.tools import eq_
 
 from enigma import Enigma
 
-
 @given('an enigma')
 def step_impl(context):
     context.enigma = Enigma()
+
 
 @given(u'an enigma that uses the reflector')
 def step_impl(context):
     if not hasattr(context, 'enigma'):
         context.enigma = Enigma()
 
+
 @given(u'an enigma that uses the reflector and leftmost rotor')
 def step_impl(context):
     if not hasattr(context, 'enigma'):
         context.enigma = Enigma()
+
 
 @given(u'an enigma that uses the reflector, and left and center rotors')
 def step_impl(context):
     if not hasattr(context, 'enigma'):
         context.enigma = Enigma()
 
+
 @given(u'an enigma that uses the reflector and all rotors')
 def step_impl(context):
     if not hasattr(context, 'enigma'):
         context.enigma = Enigma()
+
 
 @given(u'a reflector "{reflector}"')
 def step_impl(context, reflector):
@@ -34,30 +38,34 @@ def step_impl(context, reflector):
         context.enigma = Enigma()
     context.enigma.reflector = reflector
 
+
 @given(u'a reflector "{reflector}";')
 def step_impl(context, reflector):
     if not hasattr(context, 'enigma'):
         context.enigma = Enigma()
     context.enigma.reflector = reflector
 
-@given(u'center rotor "{centerRotor}";')
-def step_impl(context, centerRotor):
-    print('*****************centerRotor:'+centerRotor)
-    if not hasattr(context, 'enigma'):
-        context.enigma = Enigma()
-    context.enigma.centerRotor = centerRotor
 
-@given(u'leftmost rotor "{leftRotor}";')
-def step_impl(context, leftRotor):
+@given(u'center rotor "{center_rotor}";')
+def step_impl(context, center_rotor):
     if not hasattr(context, 'enigma'):
         context.enigma = Enigma()
-    context.enigma.leftRotor = leftRotor
+    context.enigma.set_center_rotor(center_rotor)
 
-@given(u'right rotor "{rightRotor}";')
-def step_impl(context, rightRotor):
+
+@given(u'leftmost rotor "{left_rotor}";')
+def step_impl(context, left_rotor):
     if not hasattr(context, 'enigma'):
         context.enigma = Enigma()
-    context.enigma.rightRotor = rightRotor
+    context.enigma.set_left_rotor(left_rotor)
+
+
+@given(u'right rotor "{right_rotor}";')
+def step_impl(context, right_rotor):
+    if not hasattr(context, 'enigma'):
+        context.enigma = Enigma()
+    context.enigma.set_center_rotor(right_rotor)
+
 
 # Apparently behave can't recognize "" as text of zero length
 @when('an operator encrypts ""')
